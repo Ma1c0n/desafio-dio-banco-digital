@@ -1,6 +1,8 @@
 package com.banco_digital;
 
 import com.banco_digital.dados.DadosFalsos;
+import com.banco_digital.modelo.Cliente;
+import com.banco_digital.modelo.Sexo;
 
 import java.util.List;
 
@@ -14,18 +16,25 @@ public class Main {
         System.out.println(c2);
 
         //transferencia entre contas
-        c1.transferir(c2,500);
+        c1.transferir(c2, 500);
         System.out.println(c1);
         System.out.println(c2);
 
         //deposito
-        System.out.println("saldo atual = "+c1);
+        System.out.println("saldo atual = " + c1);
         c1.depositar(500);
         c1.depositar(500);
         c1.depositar(500);
-        System.out.println("saldo atual = "+c1);
+        System.out.println("saldo atual = " + c1);
 
         //extrado
         c1.extrado();
+
+
+        //testes------------
+        Cliente c = new Cliente("fsd", 15, "14", Sexo.MASCULINO);
+        String nome = c.getNome();
+        System.out.println(c);
+        System.out.println(nome);
     }
 }

@@ -1,8 +1,11 @@
 package com.banco_digital;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Data
 public class Movimentacao {
     private final List<String> historico = new ArrayList<>();
 
@@ -20,9 +23,5 @@ public class Movimentacao {
 
     public void apagarHistorico() {
         historico.clear();
-    }
-
-    public List<String> getHistorico() {
-        return historico;
     }
 }

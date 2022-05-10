@@ -4,19 +4,30 @@ import com.banco_digital.interfaces.ServicoBanco;
 import com.banco_digital.logica.ServicoBancoA;
 import com.banco_digital.modelo.Cliente;
 import com.banco_digital.modelo.TipoConta;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
+@ToString
 public abstract class Conta {
 
+    @Getter
     private int agencia;
 
+    @Getter
     private int conta;
 
+    @Getter
     private TipoConta tipoConta;
 
+    @Getter
+    @Setter
     private double saldo;
 
+    @Getter
     private Cliente cliente;
 
+    @Getter
     private Movimentacao movimentacao = new Movimentacao();
 
     public Conta() {
@@ -51,71 +62,7 @@ public abstract class Conta {
         servicoBanco.extrato(this);
     }
 
-    public Movimentacao getMovimentacao() {
-        return movimentacao;
-    }
-
     private ServicoBanco servicoBanco = new ServicoBancoA(new BancoCentral());
-
-    public int getAgencia() {
-        return agencia;
-    }
-
-    public void setAgencia(int agencia) {
-        this.agencia = agencia;
-    }
-
-    public int getConta() {
-        return conta;
-    }
-
-    public void setConta(int conta) {
-        this.conta = conta;
-    }
-
-    public TipoConta getTipoConta() {
-        return tipoConta;
-    }
-
-    public void setTipoConta(TipoConta tipoConta) {
-        this.tipoConta = tipoConta;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
-
-    public ServicoBanco getServicoBanco() {
-        return servicoBanco;
-    }
-
-    public void setServicoBanco(ServicoBanco servicoBanco) {
-        this.servicoBanco = servicoBanco;
-    }
-
-
-    @Override
-    public String toString() {
-        return "Conta{" +
-                "agencia=" + agencia +
-                ", conta=" + conta +
-                ", tipoConta=" + tipoConta +
-                ", saldo=" + saldo +
-                ", cliente=" + cliente +
-                '}';
-    }
 
     protected void setTipoConta() {
         if (this instanceof ContaCorrente) {
